@@ -21,7 +21,7 @@
 title: AJ & Dennis Gregory Memorial Doubles
 description: >- # this means to ignore newlines until "baseurl:"
   Website for the AJ & Dennis Gregory Memorial Doubles bowling league.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/wnd" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # email: your-email@example.com
 # twitter_username: jekyllrb
