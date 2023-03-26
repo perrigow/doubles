@@ -25,6 +25,10 @@ footer>.inner>hr {
 	margin-bottom: 0.5em;
 }
 
+footer>.inner>a {
+	font-size: 10px
+}
+
 @media (min-width: 768px) {
 	footer>.inner {
 		padding: 68px 40px 5px;
