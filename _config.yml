@@ -71,7 +71,7 @@ collections:
     output: true
 
 # Build settings
-# theme: null
+theme: null
 # plugins:
 #   - jekyll-feed
 
