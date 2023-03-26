@@ -1,0 +1,23 @@
+/*********************
+* Standings Page CSS
+*********************/
+#content>.inner>a.standings-download {
+	display: block;
+	margin-top: -55px;
+	padding-top: 8px;
+	text-align: center;
+}
+
+#content>.inner>.standings-image {
+	margin: 20px auto 0px;
+	max-width: 786px;
+}
+
+@media (min-width: 768px) {
+	#content>.inner>.standings-image {
+		border: 1px solid #000000;
+		height: 696px;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+}

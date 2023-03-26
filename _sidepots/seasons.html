@@ -1,0 +1,12 @@
+---
+layout: default
+---
+{% assign sidepots_seasons = site.sidepots | reverse | where_exp: "page", "page.season != nil" %}
+<div class="seasons text-center">
+  <h1>All Seasons (Sidepots)</h1>
+  <ul>
+  {% for sidepots_page in sidepots_seasons %}
+    <li><a href="{{ sidepots_page.url | relative_url }}">{{ sidepots_page.season | replace: "-", " - " }}</a></li>
+  {% endfor %}
+  </ul>
+</div>

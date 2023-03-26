@@ -1,0 +1,56 @@
+/*******************
+* Seasons Menu CSS
+*******************/
+#content>.inner #seasons-head,
+#content>.inner #seasons-body {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 218px;
+	font-weight: bold;
+}
+
+#content>.inner #seasons-head {
+	background: #fafafa url(images/seasons_head_bg.png) repeat-x;
+	font-size: 20px;
+	padding: 15px 0px;
+}
+
+#content>.inner #seasons-body {
+	background-color: #323039;
+	margin-top: -10px;
+	height: 208px;
+}
+
+#content>.inner #seasons-body hr {
+	background: url(images/hr_bg.png) repeat-x;
+	border: 0px;
+	height: 2px;
+	margin: 4px 0px;
+	opacity: 1;
+}
+
+#content>.inner #seasons-body ul{
+	padding: 6px 0px 4px;
+	text-decoration: none;
+}
+
+#content>.inner #seasons-body a{
+	color: #fafafa;
+	display: block;
+	font-size: 15px;
+	padding: 6px 0px 4px;
+	text-decoration: none;
+	list-style-type: none;
+}
+
+#content>.inner #seasons-body a:hover{
+	color: #007bff;
+}
+
+/*******************
+* Seasons Page CSS
+*******************/
+#content>.inner>.seasons>ul {
+	padding: 0px 0px 15px;
+	margin: 0px;
+}

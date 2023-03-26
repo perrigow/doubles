@@ -1,0 +1,9 @@
+---
+title: Error
+permalink: /404
+# Robots: noindex,nofollow
+---
+# Error 404
+
+__Page Not Found :(__\
+The requested page could not be found.

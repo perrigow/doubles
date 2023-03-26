@@ -1,0 +1,26 @@
+/********************
+* Sidepots Page CSS
+********************/
+#content>.inner>.sidepots ul {
+	padding: 0px;
+	list-style-type: none;
+	-webkit-padding-start: 0px;
+}
+
+#content>.inner>.sidepots>.all-seasons
+{
+	display: block;
+	margin-top: 16px;
+}
+
+#content>.inner>.sidepots h3,
+#content>.inner>.sidepots h4 {
+	font-weight: bold;
+}
+
+@media (min-width: 768px) {
+	#content>.inner>.sidepots>.seasons {
+		float: left !important;
+		margin-top: 5px;
+	}
+}

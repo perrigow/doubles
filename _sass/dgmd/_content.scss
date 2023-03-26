@@ -1,0 +1,65 @@
+/*******************
+* Content Page CSS
+*******************/
+#content>.inner {
+	font-size: 0.875em;
+	padding: 30px 15px 0;
+}
+
+#content>.inner>.alert {
+	margin: 8px 8px 0px;
+	padding: 8px 15px 0px;
+}
+
+#content>.inner ul {
+	list-style-type: none;
+	-webkit-padding-start: 0px;
+}
+
+#content>.inner hr {
+	opacity: 1;
+}
+
+@media (min-width: 768px) {
+	#content>.inner {
+		padding: 30px 0px 0px;
+		margin: 0px 42px;
+	}
+	#content>.inner>.alert {
+		margin: 16px 16px 0px;
+		padding: 8px 26px;
+	}
+}
+
+/*******************
+* Main Content CSS
+*******************/
+#main {
+	z-index: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#main >.inner {
+	background-color: #fff;
+}
+
+@media (min-width: 768px) {
+	#main >.inner {
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: -60px;
+		min-height: 500px;
+		max-width: 870px;
+	}
+}
+
+@media( min-width: 884px) {
+	#main {
+		position: relative;
+		padding-top: 7px;
+		background-image: url(images/main-wrapper_bg.png);
+		background-repeat: no-repeat;
+		width: 884px;
+	}
+}

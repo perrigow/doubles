@@ -1,0 +1,43 @@
+/*************
+* Footer CSS
+*************/
+footer {
+	border-bottom: 1px solid black;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+footer>.inner {
+	background-color: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 10px;
+	text-align: center;
+	padding: 20px 15px 5px;
+}
+
+footer>.inner>hr {
+	border: 0px;
+	background-color: #767676;
+	height: 1px;
+	display: block;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+@media (min-width: 768px) {
+	footer>.inner {
+		padding: 68px 40px 5px;
+		max-width: 870px;
+	}
+}
+
+@media (min-width: 884px) {
+	footer {
+		border: 0;
+		height: 106px;
+		background-image: url(images/footer_bg.png);
+		background-repeat: no-repeat;
+		width: 884px;
+	}
+}

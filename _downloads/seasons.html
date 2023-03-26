@@ -1,0 +1,12 @@
+---
+layout: default
+---
+{% assign downloads_seasons = site.downloads | reverse | where_exp: "page", "page.season != nil" %}
+<div class="seasons text-center">
+  <h1>All Seasons (Downloads)</h1>
+  <ul>
+  {% for download_page in downloads_seasons %}
+    <li><a href="{{ download_page.url | relative_url }}">{{ download_page.season | replace: "-", " - " }}</a></li>
+  {% endfor %}
+  </ul>
+</div>

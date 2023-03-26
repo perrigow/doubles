@@ -1,0 +1,42 @@
+body {
+	background: #fafafa url(images/page-wrapper_bg.png) repeat-x;
+	font-size: 16px;
+	font-family: Verdana,Tahoma,"DejaVu Sans",sans-serif;
+}
+
+a {
+	/* color: #f41b1b; */
+	font-size: 18px;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #003864;
+}
+
+h1 {
+	font-size: 2em;
+	line-height: 1.3em;
+	font-weight: bold;
+	margin: 0px;
+	margin-bottom: 15px;
+}
+
+hr {
+	border-top: 1px solid #767676;
+}
+
+.btn-primary {
+	background-color: #0069d9;
+	border-color: #0062cc;
+}
+
+.btn-primary:hover {
+	background-color: #0062cc;
+	border-color: #005cbf;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+	background-color: #005cbf;
+	border-color: #0052b0;
+}

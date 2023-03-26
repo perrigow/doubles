@@ -1,0 +1,43 @@
+/*******************
+* Sponsor Page CSS
+*******************/
+#content>.inner>.league-sponsor {
+	margin-top: 10px;
+	text-align: center;
+}
+
+#content>.inner>.league-sponsor>img,
+#content>.inner>.league-sponsor>a>img {
+	max-width: 100%;
+	margin: 0px auto;
+}
+
+#content>.inner>.team-sponsor {
+	padding: 10px 0px;
+	text-align: center;
+}
+
+#content>.inner>.team-sponsor>img,
+#content>.inner>.team-sponsor>a>img {
+	max-height: 165px;
+	max-width: 80%;
+	margin: 0px auto;
+}
+
+@media (min-width: 768px) {
+	#content>.inner>.league-sponsor>img,
+	#content>.inner>.league-sponsor>a>img {
+		max-width: 784px;
+		clear: both;
+		padding: 0px;
+	}
+
+	#content>.inner>.team-sponsor {
+		/* display: inline-block; */
+		float: left;
+		width: 50%;
+		margin-bottom: 20px;
+		position: relative;
+		min-height: 185px;
+	}
+}

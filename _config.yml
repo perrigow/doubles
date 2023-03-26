@@ -23,14 +23,57 @@ description: >- # this means to ignore newlines until "baseurl:"
   Website for the AJ & Dennis Gregory Memorial Doubles bowling league.
 baseurl: "/wnd" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+theme_path: /themes/dgmd/
 # email: your-email@example.com
-# twitter_username: jekyllrb
-# github_username:  jekyll
+
+defaults:
+  - scope:
+      type: "pages"
+    values:
+      layout: default
+  - scope:
+      type: "downloads"
+    values:
+      title: Downloads
+      permalink: /:collection/:name
+      layout: downloads
+  - scope:
+      type: "sidepots"
+    values:
+      title: Sidepots
+      permalink: /:collection/:name
+      layout: sidepots
+  - scope:
+      path: assets/fetch
+    values:
+      fetch_file: true
+  - scope:
+      path: assets/seasons/*/misc
+    values:
+      miscellaneous_pdf: true
+  - scope:
+      path: assets/seasons/*/sidepots
+    values:
+      sidepots_pdf: true
+  - scope:
+      path: assets/seasons/*/standings/png
+    values:
+      standings_png: true
+  - scope:
+      path: assets/seasons/*/standings/pdf
+    values:
+      standings_pdf: true
+
+collections:
+  downloads:
+    output: true
+  sidepots:
+    output: true
 
 # Build settings
-theme: minima
-plugins:
-  - jekyll-feed
+# theme: null
+# plugins:
+#   - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default.
