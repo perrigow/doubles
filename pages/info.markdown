@@ -2,7 +2,7 @@
 title: Info
 permalink: /info/
 ---
-# Info
+### Info
 
 __ROME NY USBC, INC.__\
 614 Elm St\

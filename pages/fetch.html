@@ -4,7 +4,7 @@ permalink: /fetch/
 ---
 {%- assign fetch_files = site.static_files | where: "fetch_file", true %}
 <div class="fetch">
-  <h1>Fetch A File</h1>
+  <h3>Fetch A File</h3>
   {%- if fetch_files.size > 0 %}
     <ul>
     {%- for file in fetch_files %}
@@ -15,6 +15,6 @@ permalink: /fetch/
     {%- endfor %}
     </ul>
   {%- else %}
-    <span class="help-block">No files available for fetching.</span>
+    <span class="text-muted">No files available for fetching</span>
   {%- endif %}
 </div>

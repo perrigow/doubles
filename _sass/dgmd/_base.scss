@@ -1,12 +1,10 @@
 body {
 	background: #fafafa url(images/page-wrapper_bg.png) repeat-x;
-	font-size: 16px;
 	font-family: Verdana,Tahoma,"DejaVu Sans",sans-serif;
 }
 
 a {
-	/* color: #f41b1b; */
-	font-size: 18px;
+	font-size: 1.2em;
 	text-decoration: none;
 }
 
@@ -14,16 +12,14 @@ a:hover {
 	color: #003864;
 }
 
-h1 {
-	font-size: 2em;
-	line-height: 1.3em;
-	font-weight: bold;
-	margin: 0px;
-	margin-bottom: 15px;
+h3 {
+	font-weight: 700;
+	margin-bottom: 1rem;
 }
 
 hr {
 	border-top: 1px solid #767676;
+	opacity: 1;
 }
 
 .btn-primary {

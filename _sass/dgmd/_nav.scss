@@ -3,11 +3,11 @@
 *****************/
 nav {
 	background-color: #323039;
-	padding: 5px 0px;
+	padding: .5rem 0;
 }
 
 .nav-link {
-	font-size: 18px;
+	font-size: 1.2em;
 }
 
 .selectnav {
@@ -15,27 +15,22 @@ nav {
 	color: #fafafa;
 	font-weight: bold;
 	width: 280px;
-	margin: 0px auto;
-	border-radius: 1px;
+	margin: 0 auto;
 	border: 1px solid #555;
 	background-color: #323039;
-	padding: 7px 10px;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	-ms-appearance: none;
+	padding: .5rem;
 	appearance: none;
 }
 
 @media (min-width: 768px) {
 	.nav>li>a {
 		color: #fafafa;
-		padding-top: 10px;
+		padding-top: .5rem;
 	}
 	.nav>li>a:hover,
 	.nav>li>a:focus,
 	.nav>li.active>a  {
 		color: #007bff;
 		font-weight: bold;
-		background-color: #323039;
 	}
 }

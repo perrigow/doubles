@@ -13,11 +13,11 @@ layout: default
     | where: "miscellaneous_pdf", true
     | where_exp: "file", "file.path contains season"
 %}
-<div class="downloads clearfix">
+<div class="downloads">
   {{ content }}
   <div class="row">
     <div class="col-12 col-md-9 offset-md-3 text-center">
-      <h1>{{ season | replace: "-", " - " }} Season</h1>
+      <h3>{{ season | replace: "-", " - " }} Season</h3>
     </div>
   </div>
   <div class="row">
@@ -35,7 +35,7 @@ layout: default
     </div>
 
     <div class="col-md-5 text-center">
-      <h3>Standing Sheets</h3>
+      <h3 class="mb-2">Standing Sheets</h3>
       {%- if downloads_standings.size > 0 %}
         <ul>
         {%- for standings in downloads_standings %}
@@ -43,12 +43,12 @@ layout: default
         {%- endfor %}
         </ul>
       {%- else %}
-        <span class="help-block">No standings sheets for this season.</span>
+        <span class="text-muted">No standings sheets<br>for this season</span>
       {%- endif %}
     </div>
 
     <div class="col-md-4 text-center">
-      <h3>Miscellaneous</h3>
+      <h3 class="mb-2">Miscellaneous</h3>
       {%- if downloads_miscellaneous.size > 0 %}
         <ul>
         {%- for misc in downloads_miscellaneous %}
@@ -56,11 +56,11 @@ layout: default
         {%- endfor %}
         </ul>
       {%- else %}
-        <span class="help-block">No miscellaneous files for this season.</span>
+        <span class="text-muted">No miscellaneous files<br>for this season</span>
       {%- endif %}
     </div>
   </div>
-  <div class="col-12 all-seasons text-center d-md-none">
+  <div class="col-12 all-seasons text-center d-md-none mt-3">
     <a class="btn btn-primary" href="{{ '/downloads/seasons' | relative_url }}"}">All Seasons</a>
   </div>
 </div>

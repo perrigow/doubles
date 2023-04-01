@@ -8,11 +8,11 @@ layout: default
     | where: "sidepots_pdf", true
     | where_exp: "file", "file.path contains season"
 %}
-<div class="sidepots clearfix">
+<div class="sidepots">
   {{ content }}
   <div class="row">
     <div class="col-12 col-md-9 offset-md-3 text-center">
-      <h1>{{ season | replace: "-", " - " }} Sidepots</h1>
+      <h3>{{ season | replace: "-", " - " }} Sidepots</h3>
     </div>
   </div>
   <div class="row">
@@ -36,11 +36,11 @@ layout: default
         {% endfor %}
         </ul>
       {% else %}
-        <span class="help-block">No sidepot reports for this season.</span>
+        <span class="text-muted">No sidepot reports for this season</span>
       {% endif %}
     </div>
   </div>
-  <div class="col-12 all-seasons text-center d-md-none">
+  <div class="col-12 all-seasons text-center d-md-none mt-3">
     <a class="btn btn-primary" href="{{ '/sidepots/seasons' | relative_url }}">All Seasons</a>
   </div>
 </div>
