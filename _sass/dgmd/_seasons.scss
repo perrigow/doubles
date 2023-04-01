@@ -1,0 +1,39 @@
+/*******************
+* Seasons Menu CSS
+*******************/
+#content>.inner #seasons-head,
+#content>.inner #seasons-body {
+	font-weight: bold;
+}
+
+#content>.inner #seasons-head {
+	background: #fafafa url(images/seasons_head_bg.png) repeat-x;
+	font-size: 1.2em;
+	line-height: 2.5em
+}
+
+#content>.inner #seasons-body {
+	background-color: #323039;
+}
+
+#content>.inner #seasons-body hr {
+	background: url(images/hr_bg.png) repeat-x;
+	border: 0;
+	height: 2px;
+	margin: .25rem 0;
+}
+
+#content>.inner #seasons-body ul{
+	padding: .25rem 0;
+}
+
+#content>.inner #seasons-body a{
+	color: #fafafa;
+	display: block;
+	font-size: 1em;
+	line-height: 2.5em;
+}
+
+#content>.inner #seasons-body a:hover{
+	color: #007bff;
+}

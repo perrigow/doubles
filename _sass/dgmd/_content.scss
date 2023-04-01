@@ -1,0 +1,22 @@
+/*******************
+* Content Page CSS
+*******************/
+#content>.inner {
+	padding: 1.5rem .5rem 0;
+}
+
+#content>.inner ul {
+	list-style-type: none;
+	padding: 0;
+	-webkit-padding-start: 0;
+}
+
+@media (min-width: 768px) {
+	#content>.inner {
+		padding: 1.5rem 0 0;
+		margin: 0 2.5rem;
+	}
+	#content>.inner ul {
+		margin-bottom: 0;
+	}
+}

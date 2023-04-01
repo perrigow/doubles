@@ -1,0 +1,66 @@
+---
+layout: default
+---
+{% assign downloads_seasons = site.downloads | reverse | where_exp: "page", "page.season != nil" %}
+{% assign season = page.season | default: downloads_seasons.first.season %}
+{%
+  assign downloads_standings = site.static_files
+    | where: "standings_pdf", true
+    | where_exp: "file", "file.path contains season"
+%}
+{%
+  assign downloads_miscellaneous = site.static_files
+    | where: "miscellaneous_pdf", true
+    | where_exp: "file", "file.path contains season"
+%}
+<div class="downloads">
+  {{ content }}
+  <div class="row">
+    <div class="col-12 col-md-9 offset-md-3 text-center">
+      <h3>{{ season | replace: "-", " - " }} Season</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 seasons text-center d-none d-md-block">
+      <div id="seasons-head">Seasons</div>
+      <div id="seasons-body">
+        <ul>
+        {% for download_page in downloads_seasons limit:4 %}
+          <li><a href="{{ download_page.url | relative_url }}">{{ download_page.season | replace: "-", " - " }}</a></li>
+          <hr>
+        {% endfor %}
+          <li><a href="{{ '/downloads/seasons' | relative_url }}">All Seasons</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-5 text-center">
+      <h3 class="mb-2">Standing Sheets</h3>
+      {%- if downloads_standings.size > 0 %}
+        <ul>
+        {%- for standings in downloads_standings %}
+          <li><a href="{{ standings.path | relative_url }}">{{ standings.basename }}</a></li>
+        {%- endfor %}
+        </ul>
+      {%- else %}
+        <span class="text-muted mb-3 d-block">No standings sheets<br>for this season</span>
+      {%- endif %}
+    </div>
+
+    <div class="col-md-4 text-center">
+      <h3 class="mb-2">Miscellaneous</h3>
+      {%- if downloads_miscellaneous.size > 0 %}
+        <ul>
+        {%- for misc in downloads_miscellaneous %}
+          <li><a href="{{ misc.path | relative_url }}">{{ misc.basename }}</a></li>
+        {%- endfor %}
+        </ul>
+      {%- else %}
+        <span class="text-muted mb-3 d-block">No miscellaneous files<br>for this season</span>
+      {%- endif %}
+    </div>
+  </div>
+  <div class="col-12 all-seasons text-center d-md-none mt-3">
+    <a class="btn btn-primary" href="{{ '/downloads/seasons' | relative_url }}"}">All Seasons</a>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+---
+layout: default
+---
+{% assign sidepots_seasons = site.sidepots | reverse | where_exp: "page", "page.season != nil" %}
+{% assign season = page.season | default: sidepots_seasons.first.season %}
+{%
+  assign sidepots_reports = site.static_files
+    | where: "sidepots_pdf", true
+    | where_exp: "file", "file.path contains season"
+%}
+<div class="sidepots">
+  {{ content }}
+  <div class="row">
+    <div class="col-12 col-md-9 offset-md-3 text-center">
+      <h3>{{ season | replace: "-", " - " }} Sidepots</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 seasons text-center d-none d-md-block">
+      <div id="seasons-head">Seasons</div>
+      <div id="seasons-body">
+        <ul>
+        {% for sidepots_page in sidepots_seasons limit:4 %}
+          <li><a href="{{ sidepots_page.url | relative_url}}">{{ sidepots_page.season | replace: "-", " - " }}</a></li>
+          <hr>
+        {% endfor %}
+          <li><a href="{{ '/sidepots/seasons' | relative_url }}">All Seasons</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9 text-center">
+      {% if sidepots_reports.size > 0 %}
+        <ul>
+        {% for report in sidepots_reports %}
+        <li><a href="{{ report.path | relative_url }}">{{ report.basename }}</a></li>
+        {% endfor %}
+        </ul>
+      {% else %}
+        <span class="text-muted mb-3 d-block">No sidepot reports for this season</span>
+      {% endif %}
+    </div>
+  </div>
+  <div class="col-12 all-seasons text-center d-md-none mt-3">
+    <a class="btn btn-primary" href="{{ '/sidepots/seasons' | relative_url }}">All Seasons</a>
+  </div>
+</div>

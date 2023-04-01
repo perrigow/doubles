@@ -1,0 +1,36 @@
+/*****************
+* Nav CSS
+*****************/
+nav {
+	background-color: #323039;
+	padding: .5rem 0;
+}
+
+.nav-link {
+	font-size: 1.2em;
+}
+
+.selectnav {
+	background: transparent url(images/select-box-arrow.png) no-repeat right center;
+	color: #fafafa;
+	font-weight: bold;
+	width: 280px;
+	margin: 0 auto;
+	border: 1px solid #555;
+	background-color: #323039;
+	padding: .5rem;
+	appearance: none;
+}
+
+@media (min-width: 768px) {
+	.nav>li>a {
+		color: #fafafa;
+		padding-top: .5rem;
+	}
+	.nav>li>a:hover,
+	.nav>li>a:focus,
+	.nav>li.active>a  {
+		color: #007bff;
+		font-weight: bold;
+	}
+}
