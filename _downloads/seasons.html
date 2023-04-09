@@ -4,9 +4,13 @@ layout: default
 {% assign downloads_seasons = site.downloads | reverse | where_exp: "page", "page.season != nil" %}
 <div class="seasons text-center">
   <h3>All Seasons (Downloads)</h3>
-  <ul>
-  {% for download_page in downloads_seasons %}
-    <li><a href="{{ download_page.url | relative_url }}">{{ download_page.season | replace: "-", " - " }}</a></li>
-  {% endfor %}
-  </ul>
+  {%- if downloads_seasons.size > 0 %}
+    <ul>
+    {% for download_page in downloads_seasons %}
+      <li><a href="{{ download_page.url | relative_url }}">{{ download_page.season | replace: "-", " - " }}</a></li>
+    {% endfor %}
+    </ul>
+  {%- else %}
+    <span class="text-muted mb-3 d-block">No seasons available for downloads</span>
+  {%- endif %}
 </div>

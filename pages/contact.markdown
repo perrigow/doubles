@@ -1,7 +1,7 @@
 ---
 title: Contact
 permalink: /contact/
-nav_pos: 5
+# nav_pos: 5
 ---
 ### Contact
 
