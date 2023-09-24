@@ -7,9 +7,15 @@ nav_pos: 1
 {% assign standings_image = site.static_files | where: "standings_png", true | last %}
 <h3>Standings</h3>
 {% if standings_download and standings_image %}
-<a class="float-end standings-download btn btn-primary" href="{{ standings_download.path | relative_url }}" target="_blank">Download</a>
+{%- capture standings_href -%}
+  {{ standings_download.path | relative_url }}?{{ standings_download.modified_time | date: '%s' }}
+{%- endcapture %}
+{%- capture standings_src -%}
+  {{ standings_image.path | relative_url }}?{{ standings_image.modified_time | date: '%s' }}
+{%- endcapture %}
+<a class="float-end standings-download btn btn-primary" href="{{ standings_href }}" target="_blank">Download</a>
 <div class="standings-image">
-	<img class="img-fluid" alt src="{{ standings_image.path | relative_url }}"/>
+	<img class="img-fluid" alt src="{{ standings_src }}"/>
 </div>
 {% else %}
 <h4 class="text-center mb-0">No standings available!</h4>

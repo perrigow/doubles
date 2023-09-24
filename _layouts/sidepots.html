@@ -1,9 +1,9 @@
 ---
 layout: default
 ---
-{% assign sidepots_seasons = site.sidepots | reverse | where_exp: "page", "page.season != nil" %}
-{% assign season = page.season | default: sidepots_seasons.first.season %}
-{%
+{%- assign sidepots_seasons = site.sidepots | reverse | where_exp: "page", "page.season != nil" %}
+{%- assign season = page.season | default: sidepots_seasons.first.season %}
+{%-
   assign sidepots_reports = site.static_files
     | where: "sidepots_pdf", true
     | where_exp: "file", "file.path contains season"
@@ -20,10 +20,10 @@ layout: default
       <div id="seasons-head">Seasons</div>
       <div id="seasons-body">
         <ul>
-        {% for sidepots_page in sidepots_seasons limit:4 %}
+        {%- for sidepots_page in sidepots_seasons limit:4 %}
           <li><a href="{{ sidepots_page.url | relative_url}}">{{ sidepots_page.season | replace: "-", " - " }}</a></li>
           <hr>
-        {% endfor %}
+        {%- endfor %}
           <li><a href="{{ '/sidepots/seasons' | relative_url }}">All Seasons</a></li>
         </ul>
       </div>
@@ -32,12 +32,15 @@ layout: default
       {% if sidepots_reports.size > 0 %}
         <ul>
         {% for report in sidepots_reports %}
-        <li><a href="{{ report.path | relative_url }}">{{ report.basename }}</a></li>
+          {%- capture href -%}
+            {{ report.path | relative_url }}?{{ report.modified_time | date: '%s' }}
+          {%- endcapture %}
+          <li><a href="{{ href }}">{{ report.basename }}</a></li>
         {% endfor %}
         </ul>
-      {% else %}
+      {%- else -%}
         <span class="text-muted mb-3 d-block">No sidepot reports yet for this season</span>
-      {% endif %}
+      {%- endif %}
     </div>
   </div>
   <div class="col-12 all-seasons text-center d-md-none mt-3">
