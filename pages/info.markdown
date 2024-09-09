@@ -4,8 +4,8 @@ permalink: /info/
 ---
 ### Info
 
-__ROME NY USBC, INC.__\
-614 Elm St\
-Rome, NY 1344
+__ROME USBC, INC.__\
+405 East Hamilton Ave\
+Sherrill, NY 13461
 
-__Competition #452447__
+__Competition #721103__
