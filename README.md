@@ -1,2 +1,2 @@
-# Wednesday Night Doubles (WND)
-This project holds the source code for the AJ &amp; Dennis Gregory Memorial League website. The website is built with [Jekyll](https://jekyllrb.com/), a static site generator written in Ruby by Tom Preston-Werner and takes advantage of the [Liquid](https://shopify.github.io/liquid/) templating language to build layouts and pages. The site gets auto-deployed to GitHub Pages.
+# AJ and Dennis Gregory Memorial Doubles
+This project holds the source code for the AJ &amp; Dennis Gregory Memorial Doubles League website. The website is built with [Jekyll](https://jekyllrb.com/), a static site generator written in Ruby by Tom Preston-Werner and takes advantage of the [Liquid](https://shopify.github.io/liquid/) templating language to build layouts and pages. The site gets auto-deployed to GitHub Pages.
