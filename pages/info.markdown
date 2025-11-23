@@ -12,7 +12,7 @@ __AJ & Dennis Gregory Memorial Doubles__\
 Competition __#767929__
 
 __Vista Lanes__\
-Certification: __#1508__
+Certification: __#1508__\
 550 Oriskany Blvd\
-Yorkville, NY 13495\
+Yorkville, NY 13495
 
