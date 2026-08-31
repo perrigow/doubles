@@ -8,7 +8,7 @@ __ROME USBC, INC.__\
 405 East Hamilton Ave\
 Sherrill, NY 13461
 
-__AJ & Dennis Gregory Memorial Doubles__\
+__Sunday Doubles__\
 Competition __#767929__
 
 __Vista Lanes__\
