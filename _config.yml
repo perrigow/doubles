@@ -18,12 +18,12 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Sunday Doubles
+title: Louis Stoio Memorial Doubles
 description: >- # this means to ignore newlines until "baseurl:"
-  Website for the Sunday Doubles bowling league.
+  Website for the Louis Stoio Memorial Doubles bowling league.
 # baseurl: "/wnd" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-theme_path: /themes/sd/
+theme_path: /themes/lsmd/
 # email: your-email@example.com
 
 defaults:
