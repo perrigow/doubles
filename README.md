@@ -1,2 +1,2 @@
-# Louis Stoio Memorial Doubles
-This project holds the source code for the Louis Stoio Memorial Doubles League website. The website is built with [Jekyll](https://jekyllrb.com/), a static site generator written in Ruby by Tom Preston-Werner and takes advantage of the [Liquid](https://shopify.github.io/liquid/) templating language to build layouts and pages. The site gets auto-deployed to GitHub Pages.
+# Louis J. Stoio Memorial League
+This project holds the source code for the Louis J. Stoio Memorial League website. The website is built with [Jekyll](https://jekyllrb.com/), a static site generator written in Ruby by Tom Preston-Werner and takes advantage of the [Liquid](https://shopify.github.io/liquid/) templating language to build layouts and pages. The site gets auto-deployed to GitHub Pages.

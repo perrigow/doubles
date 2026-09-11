@@ -18,10 +18,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Louis Stoio Memorial Doubles
+title: Louis J. Stoio Memorial League
 # email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Website for the Louis Stoio Memorial Doubles bowling league.
+  Website for the Louis J. Stoio Memorial bowling league.
 # baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb

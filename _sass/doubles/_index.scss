@@ -1,8 +1,8 @@
-@import 'base';
-@import 'main';
-@import 'content';
-@import 'nav';
-@import 'standings';
-@import 'seasons';
-@import 'sponsors';
-@import 'footer';
+@forward 'base';
+@forward 'main';
+@forward 'content';
+@forward 'nav';
+@forward 'standings';
+@forward 'seasons';
+@forward 'sponsors';
+@forward 'footer';
