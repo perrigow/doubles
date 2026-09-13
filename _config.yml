@@ -26,7 +26,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 github_username: perrigow
-theme_path: /themes/lsmd/
+theme_path: /themes/lsmd
 defaults:
   - scope:
       type: "pages"
@@ -72,7 +72,7 @@ collections:
     output: true
 
 # Build settings
-theme: null
+# theme: null
 # plugins:
 #   - jekyll-feed
 
@@ -99,3 +99,4 @@ exclude:
   - CNAME
   - LICENSE
   - README.md
+  - themes/dgmd/
