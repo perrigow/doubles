@@ -9,7 +9,7 @@ __ROME USBC, INC.__\
 Sherrill, NY 13461
 
 __Louis J. Stoio Memorial League__\
-Competition __#767929__
+Competition __#792521__
 
 __Vista Lanes__\
 Certification: __#1508__\
