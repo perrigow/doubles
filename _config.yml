@@ -33,18 +33,6 @@ defaults:
     values:
       layout: default
   - scope:
-      type: "downloads"
-    values:
-      title: Downloads
-      permalink: /:collection/:name
-      layout: downloads
-  - scope:
-      type: "sidepots"
-    values:
-      title: Sidepots
-      permalink: /:collection/:name
-      layout: sidepots
-  - scope:
       path: assets/fetch
     values:
       fetch_file: true
@@ -57,24 +45,34 @@ defaults:
     values:
       sidepots_pdf: true
   - scope:
-      path: assets/seasons/*/standings/png
-    values:
-      standings_png: true
-  - scope:
       path: assets/seasons/*/standings/pdf
     values:
       standings_pdf: true
-
-collections:
-  downloads:
-    output: true
-  sidepots:
-    output: true
+  - scope:
+      path: assets/seasons/*/standings/png
+    values:
+      standings_png: true
 
 # Build settings
 # theme: null
-# plugins:
+plugins:
+  - jekyll-datapage-generator
 #   - jekyll-feed
+
+page_gen:
+  - data: 'seasons_json'
+    template: 'downloads'
+    dir: 'downloads'
+    name: 'season'
+    title_expr: '"Downloads"'
+    filter: 'hasDownloads'
+  
+  - data: 'seasons_json'
+    template: 'sidepots'
+    dir: 'sidepots'
+    name: 'season'
+    title_expr: '"Sidepots"'
+    filter: 'hasSidepots'
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -99,4 +97,4 @@ exclude:
   - CNAME
   - LICENSE
   - README.md
-  - themes/dgmd/
+  - out.txt
