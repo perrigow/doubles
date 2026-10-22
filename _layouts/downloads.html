@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{%- assign downloads_seasons = site.data.seasons | where: "hasDownloads", true %}
+{%- assign downloads_seasons = site.data.seasons | where: "has_downloads", true %}
 {%- assign season = page.season | default: downloads_seasons.first.season %}
 {%-
   assign downloads_standings = site.static_files

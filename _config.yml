@@ -20,16 +20,16 @@
 
 title: Louis J. Stoio Memorial League
 # email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: >- # this means to ignore newlines until 'baseurl:'
   Website for the Louis J. Stoio Memorial bowling league.
-# baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+# baseurl: '' # the subpath of your site, e.g. /blog
+url: '' # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 github_username: perrigow
 theme_path: /themes/doubles
 defaults:
   - scope:
-      type: "pages"
+      type: pages
     values:
       layout: default
   - scope:
@@ -55,24 +55,22 @@ defaults:
 
 # Build settings
 # theme: null
-plugins:
-  - jekyll-datapage-generator
+# plugins:
 #   - jekyll-feed
 
 page_gen:
-  - data: 'seasons_json'
-    template: 'downloads'
-    dir: 'downloads'
-    name: 'season'
-    title_expr: '"Downloads"'
-    filter: 'hasDownloads'
+  - data: seasons
+    template: downloads
+    dir: downloads
+    name: season
+    title_expr: "'Downloads'"
   
-  - data: 'seasons_json'
-    template: 'sidepots'
-    dir: 'sidepots'
-    name: 'season'
-    title_expr: '"Sidepots"'
-    filter: 'hasSidepots'
+  - data: seasons
+    template: sidepots
+    dir: sidepots
+    name: season
+    title_expr: "'Sidepots'"
+    filter: has_sidepots
 
 # Exclude from processing.
 # The following items will not be processed, by default.
