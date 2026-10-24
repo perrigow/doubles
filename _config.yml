@@ -20,30 +20,18 @@
 
 title: Louis J. Stoio Memorial League
 # email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: >- # this means to ignore newlines until 'baseurl:'
   Website for the Louis J. Stoio Memorial bowling league.
-# baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+# baseurl: '' # the subpath of your site, e.g. /blog
+url: '' # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 github_username: perrigow
 theme_path: /themes/doubles
 defaults:
   - scope:
-      type: "pages"
+      type: pages
     values:
       layout: default
-  - scope:
-      type: "downloads"
-    values:
-      title: Downloads
-      permalink: /:collection/:name
-      layout: downloads
-  - scope:
-      type: "sidepots"
-    values:
-      title: Sidepots
-      permalink: /:collection/:name
-      layout: sidepots
   - scope:
       path: assets/fetch
     values:
@@ -57,24 +45,32 @@ defaults:
     values:
       sidepots_pdf: true
   - scope:
-      path: assets/seasons/*/standings/png
-    values:
-      standings_png: true
-  - scope:
       path: assets/seasons/*/standings/pdf
     values:
       standings_pdf: true
-
-collections:
-  downloads:
-    output: true
-  sidepots:
-    output: true
+  - scope:
+      path: assets/seasons/*/standings/png
+    values:
+      standings_png: true
 
 # Build settings
 # theme: null
 # plugins:
 #   - jekyll-feed
+
+page_gen:
+  - data: seasons
+    template: downloads
+    dir: downloads
+    name: season
+    title_expr: "'Downloads'"
+  
+  - data: seasons
+    template: sidepots
+    dir: sidepots
+    name: season
+    title_expr: "'Sidepots'"
+    filter: has_sidepots
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -99,4 +95,4 @@ exclude:
   - CNAME
   - LICENSE
   - README.md
-  - themes/dgmd/
+  - out.txt

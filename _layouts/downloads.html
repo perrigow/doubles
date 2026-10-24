@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{%- assign downloads_seasons = site.downloads | reverse | where_exp: "page", "page.season != nil" %}
+{%- assign downloads_seasons = site.data.seasons | where: "has_downloads", true %}
 {%- assign season = page.season | default: downloads_seasons.first.season %}
 {%-
   assign downloads_standings = site.static_files
@@ -14,7 +14,6 @@ layout: default
     | where_exp: "file", "file.path contains season"
 %}
 <div class="downloads">
-  {{ content }}
   <div class="row">
     <div class="col-12 col-md-9 offset-md-3 text-center">
       <h3>{{ season | replace: "-", " - " }} Season</h3>
@@ -25,8 +24,11 @@ layout: default
       <div id="seasons-head">Seasons</div>
       <div id="seasons-body">
         <ul>
-        {%- for download_page in downloads_seasons limit:4 %}
-          <li><a href="{{ download_page.url | relative_url }}">{{ download_page.season | replace: "-", " - " }}</a></li>
+        {%- for downloads_page in downloads_seasons limit:4 %}
+          {%- capture href -%}
+            /downloads/{{ downloads_page.season }}
+          {%- endcapture %}
+          <li><a href="{{ href | relative_url }}">{{ downloads_page.season | replace: "-", " - " }}</a></li>
           <hr>
         {%- endfor %}
           <li><a href="{{ '/downloads/seasons' | relative_url }}">All Seasons</a></li>

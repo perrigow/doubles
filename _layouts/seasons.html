@@ -1,0 +1,19 @@
+---
+layout: default
+---
+{%- assign all_seasons = site.data.seasons | sort: "season" | reverse | where: page.where, true %}
+<div class="seasons text-center">
+  <h3>All Seasons ({{ page.title }})</h3>
+  {%- if all_seasons.size > 0 %}
+    <ul>
+    {%- for season_page in all_seasons %}
+      {%- capture href -%}
+        /{{ page.title | downcase }}/{{ season_page.season }}
+      {%- endcapture %}
+      <li><a href="{{ href | relative_url }}">{{ season_page.season | replace: "-", " - " }}</a></li>
+    {%- endfor %}
+    </ul>
+  {%- else %}
+    <span class="text-muted mb-3 d-block">No seasons available for {{ page.title | downcase }}</span>
+  {%- endif %}
+</div>

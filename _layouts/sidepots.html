@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{%- assign sidepots_seasons = site.sidepots | reverse | where_exp: "page", "page.season != nil" %}
+{%- assign sidepots_seasons = site.data.seasons | where: "has_sidepots", true %}
 {%- assign season = page.season | default: sidepots_seasons.first.season %}
 {%-
   assign sidepots_reports = site.static_files
@@ -9,10 +9,9 @@ layout: default
     | where_exp: "file", "file.path contains season"
 %}
 <div class="sidepots">
-  {{ content }}
   <div class="row">
     <div class="col-12 col-md-9 offset-md-3 text-center">
-      <h3>{{ season | replace: "-", " - " }} Sidepots</h3>
+      <h3>{{ season | replace: "-", " - " }} Season</h3>
     </div>
   </div>
   <div class="row">
@@ -21,7 +20,10 @@ layout: default
       <div id="seasons-body">
         <ul>
         {%- for sidepots_page in sidepots_seasons limit:4 %}
-          <li><a href="{{ sidepots_page.url | relative_url}}">{{ sidepots_page.season | replace: "-", " - " }}</a></li>
+          {%- capture href -%}
+            /sidepots/{{ sidepots_page.season }}
+          {%- endcapture %}
+          <li><a href="{{ href | relative_url }}">{{ sidepots_page.season | replace: "-", " - " }}</a></li>
           <hr>
         {%- endfor %}
           <li><a href="{{ '/sidepots/seasons' | relative_url }}">All Seasons</a></li>
@@ -29,14 +31,15 @@ layout: default
       </div>
     </div>
     <div class="col-md-9 text-center">
-      {% if sidepots_reports.size > 0 %}
+      <h3 class="mb-2">Sidepots Reports</h3>
+      {%- if sidepots_reports.size > 0 %}
         <ul>
-        {% for report in sidepots_reports %}
+        {%- for report in sidepots_reports %}
           {%- capture href -%}
             {{ report.path | relative_url }}?{{ report.modified_time | date: '%s' }}
           {%- endcapture %}
           <li><a href="{{ href }}">{{ report.basename }}</a></li>
-        {% endfor %}
+        {%- endfor %}
         </ul>
       {%- else -%}
         <span class="text-muted mb-3 d-block">No sidepot reports yet for this season</span>
