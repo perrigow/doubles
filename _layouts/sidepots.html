@@ -21,9 +21,9 @@ layout: default
         <ul>
         {%- for sidepots_page in sidepots_seasons limit:4 %}
           {%- capture href -%}
-            {{ '/sidepots/' | append: sidepots_page.season | relative_url }}
+            /sidepots/{{ sidepots_page.season }}
           {%- endcapture %}
-          <li><a href="{{ href }}">{{ sidepots_page.season | replace: "-", " - " }}</a></li>
+          <li><a href="{{ href | relative_url }}">{{ sidepots_page.season | replace: "-", " - " }}</a></li>
           <hr>
         {%- endfor %}
           <li><a href="{{ '/sidepots/seasons' | relative_url }}">All Seasons</a></li>

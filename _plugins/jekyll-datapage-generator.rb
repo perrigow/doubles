@@ -20,11 +20,10 @@ module Jekyll
   end
 
   # this class is used to tell Jekyll to generate a page
-  class DataPage < Page
+  class DataPage
     include Sanitizer
 
-    # - site and base are copied from other plugins: to be honest, I am not sure what they do
-    #
+    # - `site` the current Jekyll Site instance
     # - `index_files` specifies if we want to generate named folders (true) or not (false)
     # - `dir` is the default output directory
     # - `page_data_prefix` is the prefix used to output the page data
@@ -35,9 +34,10 @@ module Jekyll
     # - `title_expr` is an expression for generating the page title
     # - `template` is the name of the template for generating the page
     # - `extension` is the extension for the generated file
-    def initialize(site, base, index_files, dir, page_data_prefix, data, name, name_expr, title, title_expr, template, extension, debug)
-      @site = site
-      @base = base
+    def initialize(site, index_files, dir, page_data_prefix, data, name, name_expr, title, title_expr, template, extension, debug)
+      @site     = site
+      @base     = site.source
+      @template = template
 
       if debug
         puts "debug (datapage-gen) Record read:"
@@ -56,7 +56,6 @@ module Jekyll
       # the value of these variables changes according to whether we
       # want to generate named folders or not
       if name_expr
-        record = data
         raw_filename = eval(name_expr)
         if raw_filename == nil
           puts "error (datapage-gen). name_expr '#{name_expr}' generated an empty value in record #{data}"
@@ -73,7 +72,6 @@ module Jekyll
       end
 
       if title_expr
-        record = data
         raw_title = eval(title_expr)
         if raw_title == nil
           puts "error (datapage-gen). title_expr '#{title_expr}' generated an empty value in record #{data}"
@@ -89,40 +87,30 @@ module Jekyll
           puts "debug (datapage-gen). will use '#{raw_title}' as the page title" if debug
       end
 
-      filename = sanitize_filename(raw_filename).to_s
+      @title = raw_title
 
+      filename = sanitize_filename(raw_filename).to_s
       @dir = dir + (index_files ? "/" + filename + "/" : "")
       @name = (index_files ? "index" : filename)
-      
       if extension
         @name += "." + extension.to_s
       end
 
-      self.process(@name)
-
-      if @site.layouts[template].path.end_with? 'html'
-        @path = @site.layouts[template].path.dup
-      else
-        @path = File.join(@site.layouts[template].path, @site.layouts[template].name)
+      @record = page_data_prefix ? { page_data_prefix => data } : data
+      if data.key?('name')
+        @record['_name'] = data['name']
       end
+    end
 
-      base_path = @site.layouts[template].path.dup
-      base_path.slice! @site.layouts[template].name
-      self.read_yaml(base_path, @site.layouts[template].name)
-
-      self.data['title'] = raw_title
-
-      # add all the information defined in _data for the current record to the
-      # current page (so that we can access it with liquid tags)
-      if page_data_prefix
-        self.data[page_data_prefix] = data
-      else
-        if data.key?('name')
-          data['_name'] = data['name']
-        end
-        self.data.merge!(data)
+    def make_page()
+      PageWithoutAFile.new(@site, @base, @dir, @name).tap do |page|
+        page.data.merge!(
+          "layout" => @template,
+          "title"  => @title,
+          **@record
+        )
+        page.output
       end
-
     end
   end
 
@@ -186,7 +174,18 @@ module Jekyll
             # we now have the list of all records for which we want to generate individual pages
             # iterate and call the constructor
             records.each do |record|
-              site.pages << DataPage.new(site, site.source, index_files_for_this_data, dir, page_data_prefix, record, name, name_expr, title, title_expr, template, data_spec['extension'], debug)
+              site.pages << DataPage.new(site,
+                                         index_files_for_this_data,
+                                         dir,
+                                         page_data_prefix,
+                                         record,
+                                         name,
+                                         name_expr,
+                                         title,
+                                         title_expr,
+                                         template,
+                                         data_spec['extension'],
+                                         debug).make_page
             end
           end
         end

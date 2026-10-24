@@ -3,57 +3,42 @@ title: Sponsors
 permalink: /sponsors/
 nav_pos: 4
 ---
-<div class="league-sponsor">
-  <a href="http://ancorautica.com/" target="_blank">
-    <img class="img-fluid" src="{{ '/assets/sponsor_logos/ancora.jpg' | relative_url }}">
-  </a>
-</div>
-<div class="league-sponsor">
-  <a href="https://inserrasflooringoutlet.com/" target="_blank">
-    <img class="img-fluid" src="{{ '/assets/sponsor_logos/inserras.png' | relative_url }}">
-  </a>
-</div>
-<div class="league-sponsor">
-  <a href="https://mcgillswhiskeytavernandgrill.com/" target="_blank">
-    <img class="img-fluid" src="{{ '/assets/sponsor_logos/mcgills.jpg' | relative_url }}">
-  </a>
-</div>
+{% assign league_sponsors = site.data.sponsors | where_exp: "sponsor", "sponsor.class == 'league-sponsor'" %}
+{% assign team_sponsors = site.data.sponsors | where_exp: "sponsor", "sponsor.class == 'team-sponsor'" %}
+
+
+{%- for league_sponsor in league_sponsors %}
+{%- capture img_src -%}
+  /assets/sponsor_logos/{{ league_sponsor.img }}
+{%- endcapture %}
+  {%- unless league_sponsor.img == nil or league_sponsor.img == empty %}
+  <div class="league-sponsor">
+  {%- if league_sponsor.href != nil and league_sponsor.href != empty %}
+    <a href="{{ league_sponsor.href }}" target="_blank">
+      <img class="img-fluid" src="{{ img_src | relative_url }}">
+    </a>
+  {%- else -%}
+    <img class="img-fluid" src="{{ img_src | relative_url }}">
+  {%- endif -%}
+  </div>
+  {%- endunless %}
+{%- endfor %}
+
 <hr>
-<div class="team-sponsor">
-  <a href="https://www.facebook.com/dicksmithstavern/" target="_blank">
-    <img class="img-fluid" src="{{ '/assets/sponsor_logos/dicksmiths.jpg' | relative_url }}">
-  </a>
-</div>
-<div class="team-sponsor">
-  <img class="img-fluid" src="{{ '/assets/sponsor_logos/harrysbrake.png' | relative_url }}">
-</div>
-<div class="team-sponsor">
-  <a href="https://www.facebook.com/profile.php?id=100057080214966" target="_blank">
-    <img class="img-fluid" src="{{ '/assets/sponsor_logos/magicalgetaways.jpg' | relative_url }}">
-  </a>
-</div>
-<div class="team-sponsor">
-  <a href="https://www.facebook.com/MAXimumEFFORTTrainingStudio/" target="_blank">
-    <img class="img-fluid" src="{{ '/assets/sponsor_logos/maximumeffort.jpg' | relative_url }}">
-  </a>
-</div>
-<div class="team-sponsor">
-  <a href="https://www.facebook.com/profile.php?id=100063550181426" target="_blank">
-    <img class="img-fluid" src="{{ '/assets/sponsor_logos/sleepyhollow.jpg' | relative_url }}">
-  </a>
-</div>
-<div class="team-sponsor">
-  <a href="https://www.facebook.com/sloppyjoespizza/" target="_blank">
-    <img class="img-fluid" src="{{ '/assets/sponsor_logos/sloppyjoespizza.jpg' | relative_url }}">
-  </a>
-</div>
-<div class="team-sponsor">
-  <a href="https://www.triospizza207.com/" target="_blank">
-    <img class="img-fluid" src="{{ '/assets/sponsor_logos/triospizza.jpg' | relative_url }}">
-  </a>
-</div>
-<div class="team-sponsor">
-  <a href="https://www.facebook.com/uticabilliards/" target="_blank">
-    <img class="img-fluid" src="{{ '/assets/sponsor_logos/uticabilliards.jpg' | relative_url }}">
-  </a>
-</div>
+
+{%- for team_sponsor in team_sponsors %}
+{%- capture img_src -%}
+  /assets/sponsor_logos/{{ team_sponsor.img }}
+{%- endcapture %}
+  {%- unless team_sponsor.img == nil or team_sponsor.img == empty %}
+  <div class="team-sponsor">
+  {%- if team_sponsor.href != nil and team_sponsor.href != empty %}
+    <a href="{{ team_sponsor.href }}" target="_blank">
+      <img class="img-fluid" src="{{ img_src | relative_url }}">
+    </a>
+  {%- else -%}
+    <img class="img-fluid" src="{{ img_src | relative_url }}">
+  {%- endif -%}
+  </div>
+  {%- endunless %}
+{%- endfor %}

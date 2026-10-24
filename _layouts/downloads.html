@@ -26,9 +26,9 @@ layout: default
         <ul>
         {%- for downloads_page in downloads_seasons limit:4 %}
           {%- capture href -%}
-            {{ '/downloads/' | append: downloads_page.season | relative_url }}
+            /downloads/{{ downloads_page.season }}
           {%- endcapture %}
-          <li><a href="{{ href }}">{{ downloads_page.season | replace: "-", " - " }}</a></li>
+          <li><a href="{{ href | relative_url }}">{{ downloads_page.season | replace: "-", " - " }}</a></li>
           <hr>
         {%- endfor %}
           <li><a href="{{ '/downloads/seasons' | relative_url }}">All Seasons</a></li>
