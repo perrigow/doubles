@@ -17,32 +17,22 @@
 - name: ABC Systems
   class: team-sponsor
   href: 
-  img: 
+  img: abcsystems.png
 
 - name: Academy Travel
   class: team-sponsor
-  href: 
-  img: 
-
-- name: dick Smith's
-  class: team-sponsor
-  href: https://www.facebook.com/dicksmithstavern/
-  img: dicksmiths.jpg
+  href: https://www.facebook.com/p/Tina-Ryan-An-Affiliate-of-Academy-Travel-100057080214966/
+  img: academytravel.jpg
 
 - name: Georgio's Village Cafe 
   class: team-sponsor
-  href: 
-  img: 
+  href: https://www.georgiosvillagecafe.com/
+  img: georgios.jpg
 
 - name: Harry's Brake
   class: team-sponsor
   href: 
   img: harrysbrake.png
-
-- name: Magical Getaways
-  class: team-sponsor
-  href: https://www.facebook.com/profile.php?id=100057080214966
-  img: magicalgetaways.jpg
 
 - name: MAXimum EFFORT Training Studio
   class: team-sponsor
@@ -59,11 +49,6 @@
   href: https://www.facebook.com/sloppyjoespizza/
   img: sloppyjoespizza.jpg
 
-- name: Trio's Pizza
-  class: team-sponsor
-  href: https://www.triospizza207.com/
-  img: triospizza.jpg
-
 - name: Utica Billiards
   class: team-sponsor 
   href: https://www.facebook.com/uticabilliards/
@@ -71,5 +56,5 @@
 
 - name: Yorkville VFW 6001
   class: team-sponsor
-  href: 
-  img: 
+  href: https://www.facebook.com/p/VFW-Memorial-Post-6001-61585989527159/
+  img: yorkvillevfw6001.jpg
